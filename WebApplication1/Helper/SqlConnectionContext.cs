@@ -4,7 +4,7 @@
     {
         public string GetConnectionString()
         {
-            string connectionString = "Server=KARTHIK\\SQLEXPRESS;Database=abc;Integrated Security=True;";
+            string connectionString = "Server=KARTHIK\\SQLEXPRESS;Database=abc;TrustServerCertificate=True;Integrated Security=True;";
             return connectionString;
         }
     }

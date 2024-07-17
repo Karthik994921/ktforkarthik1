@@ -19,8 +19,17 @@ namespace WebApplication1.Controllers
         [ActionName("UpdateStudentDetails")]
         public async Task<string> UpdateStudentDetails(Studentdetails studentdetails)
         {
-            string response= await _updateStudentDetails.updatestudentdetails(studentdetails);
+            string response = await _updateStudentDetails.updatestudentdetails(studentdetails);
             return response;
         }
+
+        [HttpGet]
+        [ActionName("FetchStudentName")]
+        public async Task<string> FetchStudentName(int rollNumber, int classroom)
+        {
+            return await _updateStudentDetails.FetchStudentName(rollNumber, classroom);
+        }
+
+
     }
 }

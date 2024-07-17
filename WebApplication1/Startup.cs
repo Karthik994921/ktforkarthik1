@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.BusinessLayer;
 using WebApplication1.DataLayer;
 using WebApplication1.Helper;
+using WebApplication1.DataLayer;
 
 namespace WebApplication1
 {
@@ -11,6 +13,8 @@ namespace WebApplication1
         {
             services.AddSwaggerGen();
             services.AddControllers();
+            services.AddScoped<IUpdateStudentDetails, UpdateStudentDetails>();
+            services.AddScoped<IStudentdata, Studentdata>();
             services.AddScoped<ISqlConnectionContext, SqlConnectionContext>();
             services.AddDbContext<StudentDbContext>((sp, builder) =>
             builder.UseSqlServer(sp.GetRequiredService<ISqlConnectionContext>().GetConnectionString()));

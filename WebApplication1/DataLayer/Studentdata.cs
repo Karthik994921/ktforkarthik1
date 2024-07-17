@@ -48,5 +48,14 @@ namespace WebApplication1.DataLayer
                 return "An exception ocurred while updating the data: "+ex.Message;
             }
         }
+
+        public async Task<string> FetchStudentName(int rollNumber, int classroom)
+        {
+            var student = await _dbContext.students
+                .Where(x => x.rollno == rollNumber && x.classroom == classroom)
+                .FirstOrDefaultAsync();
+
+            return student?.studentname ?? "Student not found";
+        }
     }
 }

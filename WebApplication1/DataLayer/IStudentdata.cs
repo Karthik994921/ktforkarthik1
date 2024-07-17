@@ -5,5 +5,7 @@ namespace WebApplication1.DataLayer
     public interface IStudentdata
     {
         Task<string> updatestudentdetails(Studentdetails studentdetails);
+
+        Task<string> FetchStudentName (int rollNumber, int classroom);
     }
 }

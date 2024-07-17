@@ -17,5 +17,10 @@ namespace WebApplication1.BusinessLayer
             string response = await _studentdata.updatestudentdetails(studentdetails);
             return response;
         }
+
+        public async Task<string> FetchStudentName(int rollNumber, int classroom)
+        {
+            return await _studentdata.FetchStudentName(rollNumber, classroom);
+        }
     }
 }

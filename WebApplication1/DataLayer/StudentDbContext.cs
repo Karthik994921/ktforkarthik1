@@ -9,6 +9,7 @@ namespace WebApplication1.DataLayer
         public DbSet<Student> students { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Student>().ToTable("Student", "dbo");
             modelBuilder.Entity<Student>()
                 .HasKey(s=>new
                 { 
