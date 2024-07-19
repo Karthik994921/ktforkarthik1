@@ -7,6 +7,7 @@ namespace WebApplication1.DataLayer
     {
         public StudentDbContext(DbContextOptions<StudentDbContext> options):base(options) { }
         public DbSet<Student> students { get; set; }
+        public DbSet<EmployeeDetails> Employees { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>().ToTable("Student", "dbo");
@@ -15,6 +16,10 @@ namespace WebApplication1.DataLayer
                 { 
                     s.rollno
                 });
+
+            modelBuilder.Entity<EmployeeDetails>().ToTable("Employee", "dbo");
+            modelBuilder.Entity<EmployeeDetails>()
+                .HasKey(e => new { e.Employeeid });
         }
     }
 }

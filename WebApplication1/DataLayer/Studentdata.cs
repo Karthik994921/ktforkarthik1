@@ -43,9 +43,9 @@ namespace WebApplication1.DataLayer
                     return "Details Updated";
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                return "An exception ocurred while updating the data: "+ex.Message;
+                return "An exception ocurred while updating the data: " + ex.Message;
             }
         }
 
@@ -58,27 +58,72 @@ namespace WebApplication1.DataLayer
             return student?.studentname ?? "Student not found";
         }
 
-        public async Task<string> FetchStudentNamebymf(string FatherName, string MotherName) { 
+        public async Task<string> FetchStudentNamebymf(string FatherName, string MotherName)
+        {
 
-            var stu=await _dbContext.students
-            .Where(x =>x.fathername ==FatherName && x.mothername == MotherName)
+            var stu = await _dbContext.students
+            .Where(x => x.fathername == FatherName && x.mothername == MotherName)
             .FirstOrDefaultAsync();
             return stu?.studentname ?? "student not found";
         }
 
-        public async Task<string> FetchStudentAdress(int classroom) { 
+        public async Task<string> FetchStudentAdress(int classroom)
+        {
 
-            var adress=await _dbContext.students
-            .Where(x =>x.classroom == classroom)
+            var adress = await _dbContext.students
+            .Where(x => x.classroom == classroom)
             .FirstOrDefaultAsync();
             return adress?.address ?? "adress not found";
         }
 
-       
-        
+        public async Task<string> UpdateEmployeeDetails(EmployeeDetails employeeDetails)
+        {
+            try
+            {
+                var existingEmployee = await _dbContext.Employees
+                    .Where(x => x.Employeeid == employeeDetails.Employeeid)
+                    .FirstOrDefaultAsync();
+
+                if (existingEmployee != null)
+                {
+                    existingEmployee.Employeename = employeeDetails.Employeename;
+                    existingEmployee.Department = employeeDetails.Department;
+                    existingEmployee.Salary = employeeDetails.Salary;
+                    await _dbContext.SaveChangesAsync();
+                    return "Employee details updated.";
+                }
+                else
+                {
+                    await _dbContext.Employees.AddAsync(employeeDetails);
+                    await _dbContext.SaveChangesAsync();
+                    return "Employee details added.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "An exception occurred while updating the employee data: " + ex.Message;
+            }
+        }
+
+        public async Task<string> Fetchemployeename(string department)
+        {
+
+            var empname = await _dbContext.Employees
+            .Where(x => x.Department == department)
+            .FirstOrDefaultAsync();
+            return empname?.Employeename ?? "depertmentnotfound not found";
 
 
 
+
+
+
+
+
+
+
+
+        }
     }
 }
 
