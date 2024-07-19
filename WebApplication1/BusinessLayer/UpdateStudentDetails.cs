@@ -22,5 +22,19 @@ namespace WebApplication1.BusinessLayer
         {
             return await _studentdata.FetchStudentName(rollNumber, classroom);
         }
-    }
+
+        public async Task<string> FetchStudentNamebymf(string FatherName, string MotherName)
+        {
+
+            return await _studentdata.FetchStudentNamebymf(FatherName, MotherName);
+        }
+
+        public async Task<string> FetchStudentAdress(int clasroom) { 
+
+            return await _studentdata.FetchStudentAdress(clasroom);
+
+        }
+        
 }
+        
+    }

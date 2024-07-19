@@ -57,5 +57,29 @@ namespace WebApplication1.DataLayer
 
             return student?.studentname ?? "Student not found";
         }
+
+        public async Task<string> FetchStudentNamebymf(string FatherName, string MotherName) { 
+
+            var stu=await _dbContext.students
+            .Where(x =>x.fathername ==FatherName && x.mothername == MotherName)
+            .FirstOrDefaultAsync();
+            return stu?.studentname ?? "student not found";
+        }
+
+        public async Task<string> FetchStudentAdress(int classroom) { 
+
+            var adress=await _dbContext.students
+            .Where(x =>x.classroom == classroom)
+            .FirstOrDefaultAsync();
+            return adress?.address ?? "adress not found";
+        }
+
+       
+        
+
+
+
     }
 }
+
+

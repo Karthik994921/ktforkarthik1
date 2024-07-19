@@ -30,6 +30,19 @@ namespace WebApplication1.Controllers
             return await _updateStudentDetails.FetchStudentName(rollNumber, classroom);
         }
 
+        [HttpGet]
+        [ActionName("FetchStudentNamebymf")]
+        public async Task<string> FetchStudentNamebymf(string FatherName, String MotherName) { 
+
+            return await _updateStudentDetails.FetchStudentNamebymf(FatherName, MotherName);
+        }
+
+        [HttpGet]
+        [ActionName("FetchStudentAdress")]
+        public async Task<string> FetchStudentAdress(int clasroom) { 
+            return await _updateStudentDetails.FetchStudentAdress(clasroom);
+        }
+
 
     }
 }
