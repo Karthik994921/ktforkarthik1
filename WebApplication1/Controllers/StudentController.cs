@@ -50,13 +50,7 @@ namespace WebApplication1.Controllers
             string response = await _updateStudentDetails.UpdateEmployeeDetails(employeeDetails);
             return response;
         }
-        [HttpGet]
-        [ActionName("Fetchemployeename")]
-        public async Task<string> Fetchemployeename(string Department)
-        {
-            return await _updateStudentDetails.Fetchemployeename(Department);
-            
-        }
+       
 
 
     }

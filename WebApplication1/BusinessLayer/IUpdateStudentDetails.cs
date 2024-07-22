@@ -12,7 +12,7 @@ namespace WebApplication1.BusinessLayer
 
         Task<string> FetchStudentAdress(int clasroom);
         Task<string> UpdateEmployeeDetails(EmployeeDetails employeeDetails);
-        Task<string> Fetchemployeename(string department);
+        
 
 
 

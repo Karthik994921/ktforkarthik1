@@ -16,7 +16,7 @@ namespace WebApplication1.DataLayer
         Task<string> FetchStudentAdress (int clasroom);
         Task<string> UpdateEmployeeDetails(EmployeeDetails employeeDetails);
 
-        Task<string> Fetchemployeename(string Department);
+        
 
 
 

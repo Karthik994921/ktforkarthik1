@@ -41,11 +41,9 @@ namespace WebApplication1.BusinessLayer
             return response;
         }
 
-        public async Task<string> Fetchemployeename(string Department) {
-            return await _studentdata.Fetchemployeename(Department);
-
+        
         }
 
     }
         
-    }
+    

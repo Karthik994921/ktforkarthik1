@@ -105,25 +105,7 @@ namespace WebApplication1.DataLayer
             }
         }
 
-        public async Task<string> Fetchemployeename(string department)
-        {
-
-            var empname = await _dbContext.Employees
-            .Where(x => x.Department == department)
-            .FirstOrDefaultAsync();
-            return empname?.Employeename ?? "depertmentnotfound not found";
-
-
-
-
-
-
-
-
-
-
-
-        }
+        
     }
 }
 
