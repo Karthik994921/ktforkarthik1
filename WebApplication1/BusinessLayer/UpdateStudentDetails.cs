@@ -34,7 +34,18 @@ namespace WebApplication1.BusinessLayer
             return await _studentdata.FetchStudentAdress(clasroom);
 
         }
-        
-}
+
+        public async Task<string> UpdateEmployeeDetails(EmployeeDetails employeeDetails)
+        {
+            string response = await _studentdata.UpdateEmployeeDetails(employeeDetails);
+            return response;
+        }
+
+        public async Task<string> Fetchemployeename(string Department) {
+            return await _studentdata.Fetchemployeename(Department);
+
+        }
+
+    }
         
     }
